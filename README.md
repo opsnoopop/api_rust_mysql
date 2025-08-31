@@ -1,12 +1,3 @@
-
-# เตรียมโปรเจกต์
-cargo new rust-axum-mysql-api
-cd rust-axum-mysql-api
-# วาง Cargo.toml และ src/main.rs ตามด้านบน
-cargo add axum@0.7 tokio@1.38 --features full serde@1 --features derive serde_json@1 sqlx@0.7 --features runtime-tokio-rustls,mysql dotenvy@0.15
-
-
-=====
 # Rust API with MySQL
 
 A simple Rust API application and MySQL, containerized with Docker.
