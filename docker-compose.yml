@@ -1,0 +1,52 @@
+services:
+  rust:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: rust:1.85-slim-bookworm_custom
+    container_name: container_rust
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - database
+    networks:
+      network_rust:
+        ipv4_address: 172.16.0.11
+
+  database:
+    image: mysql:8.4.5
+    container_name: container_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: testdb
+      MYSQL_USER: testuser
+      MYSQL_PASSWORD: testpass
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+    networks:
+      network_rust:
+        ipv4_address: 172.16.0.12
+
+  adminer:
+    image: adminer:5-standalone
+    container_name: container_adminer
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - database
+    networks:
+      network_rust:
+        ipv4_address: 172.16.0.13
+
+networks:
+  network_rust:
+    name: global_rust
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.0.0/24
