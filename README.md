@@ -34,12 +34,12 @@ A simple Rust API application and MySQL, containerized with Docker.
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/opsnoopop/api_go_mysql.git
+git clone https://github.com/opsnoopop/api_rust_mysql.git
 ```
 
 ### 2. Navigate to Project Directory
 ```bash
-cd api_go_mysql
+cd api_rust_mysql
 ```
 
 ### 3. Start the Application
@@ -150,7 +150,7 @@ docker run \
 --name container_ubuntu_tool \
 --rm \
 -it \
---network global_go \
+--network global_rust \
 opsnoopop/ubuntu-tool:1.0 \
 sysbench \
 --threads=2 \
@@ -172,7 +172,7 @@ docker run \
 --name container_ubuntu_tool \
 --rm \
 -it \
---network global_go \
+--network global_rust \
 opsnoopop/ubuntu-tool:1.0 \
 sysbench \
 --threads=2 \
@@ -194,7 +194,7 @@ docker run \
 --name container_ubuntu_tool \
 --rm \
 -it \
---network global_go \
+--network global_rust \
 opsnoopop/ubuntu-tool:1.0 \
 sysbench \
 --threads=2 \
@@ -219,7 +219,7 @@ docker run \
 --name container_k6 \
 --rm \
 -it \
---network global_go \
+--network global_rust \
 -v ./k6/:/k6/ \
 grafana/k6:1.1.0 \
 run /k6/k6_1_ramping_health_check.js
@@ -231,7 +231,7 @@ docker run \
 --name container_k6 \
 --rm \
 -it \
---network global_go \
+--network global_rust \
 -v ./k6/:/k6/ \
 grafana/k6:1.1.0 \
 run /k6/k6_2_ramping_create_user.js
@@ -243,7 +243,7 @@ docker run \
 --name container_k6 \
 --rm \
 -it \
---network global_go \
+--network global_rust \
 -v ./k6/:/k6/ \
 grafana/k6:1.1.0 \
 run /k6/k6_3_ramping_get_user_by_id.js
