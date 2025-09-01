@@ -5,10 +5,17 @@ A simple Rust API application and MySQL, containerized with Docker.
 
 ## Technology Stack
 
-**Rust Container: FROM rust:1.89.0-slim**
-- OS: Alpine Linux 3.22
-- Rust: 1.26-devel_f2db0dc
-- MySQL: 1.9.3 # cargo add axum@0.7 tokio@1.38 --features full serde@1 --features derive serde_json@1 sqlx@0.7 --features runtime-tokio-rustls,mysql dotenvy@0.15
+**Rust Container: FROM debian:bookworm-slim**
+- OS: Debian GNU/Linux 12 (bookworm) # Builder rust:1.85-slim-bookworm, Runtime debian:bookworm-slim
+- Rust: 1.85
+- cargo new myapp
+- cd myapp
+- cargo add axum@0.7 --features full
+- cargo add tokio@1.38 --features full
+- cargo add serde@1 --features derive
+- cargo add serde_json@1
+- cargo add sqlx@0.7 --features runtime-tokio-rustls,mysql
+- cargo add dotenvy@0.15
 
 **MySQL Container: FROM mysql:8.4.5**
 - OS Oracle Linux Server: 9.6
