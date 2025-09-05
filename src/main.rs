@@ -92,7 +92,7 @@ async fn main() -> anyhow::Result<()> {
 }
 
 async fn handle_root() -> impl IntoResponse {
-  (StatusCode::OK, Json(Msg { message: "Hello World from Rust" }))
+  (StatusCode::OK, Json(Msg { message: "Hello World from Rust (MySQL)" }))
 }
 
 async fn create_user(
