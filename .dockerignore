@@ -9,4 +9,6 @@ k6/
 target/
 mysql/
 mysql_initdb/
-test*.sh
+sysbench/
+wrk/
+*.sh
